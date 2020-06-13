@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chat Box</title>
+
+ <script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.replaceState(null, null, '*');
+      history.go(1);
+    };
+  </script>
+
+
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+  <link rel = "icon" href =  "assets/favicon.ico" 
+   
+  type = "image/x-icon">
+</head>
+
+<body  onload="return (event.keyCode != 116)">
+  <script>
+    var global = global || window;
+    
+</script>
+<script type = "text/javascript">  
+  window.onload = function () {  
+    
+   
+      document.onkeydown = function (e) { 
+       
+          return (e.which || e.keyCode) != 116;  
+      };  
+  }  
+</script> 
+<div class="row">
+    <h1 class="page-header" style="letter-spacing: 10px; font-family: fantasy; text-align: center;"> 
+   CHAT BOX
+    </h1>
+</div>
+  <app-root></app-root>
+</body>
+</html>

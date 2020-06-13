@@ -1,0 +1,52 @@
+!
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input #username type="text" [(ngModel)]="user" class="form-control"  id="username" placeholder="Enter Username" required>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <label for="roomInput">Choose Group</label>
+            <select #grp name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room"  required>
+                <option value="Room A">Room A</option>
+                <option value="Room B">Room B</option>
+                <option value="Room C">Room C</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+            <div style="margin-top:19px;"   > 
+                <button [disabled]="!grp.value || !username.value" type="button" class="btn btn-primary"(click)="join()">JOIN</button>
+                
+                <button type="button" [disabled]="!grp.value || !username.value" class="btn btn-danger"(click)="leave()" style="margin-left: 2%;">LEAVE</button>
+            </div>
+           
+
+        </div>
+    </div>
+    <br><br>
+    <div *ngIf="joined" style="margin-left: 25%;">
+        <h3 style="color: orangered;">Joined Successfully. Start Texting !!</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-10">
+            <div class="card"    style="height: 200px; width: 81%; margin-left: 1%; background-color:whitesmoke; overflow-y: scroll;">
+            <div *ngFor="let item of  messageArray">
+                <span><strong>{{item.user}}: </strong>{{item.message}}</span>
+            </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-sm-10">
+            <!-- <input  type="" class="form-control" [(ngModel)]="messageText"> -->
+            <textarea #msg class="form-control" id="msgbox" [(ngModel)]="messageText" placeholder="Type your Message here" cols="30" ></textarea>
+        </div>
+        <div class="col-sm-2" style="margin-top:19px;"  >
+            <button type="button" [disabled]="!msg.value || !grp.value || !username.value "  class="btn btn-success " (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
